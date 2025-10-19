@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AkiSpot - スポット詳細</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF7F50',
+            secondary: '#2C3E50',
+            accent: '#FFD700',
+            'background-light': '#F5F5F5',
+            'card-light': '#FFFFFF',
+            'text-light': '#2C3E50',
+          },
+          fontFamily: {
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      background-color: #F5F5F5;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .snap-x {
+      scroll-snap-type: x mandatory;
+    }
+    .snap-center {
+      scroll-snap-align: center;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="pb-24">
+  <!-- Header -->
+  <header class="sticky top-0 z-20 flex items-center justify-between bg-white/80 backdrop-blur-sm p-4 shadow-sm">
+    <a href="home.html" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors">
+      <span class="material-symbols-outlined text-secondary">arrow_back</span>
+    </a>
+    <h1 class="text-lg font-bold text-secondary">スポット詳細</h1>
+    <button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors">
+      <span class="material-symbols-outlined text-secondary">more_horiz</span>
+    </button>
+  </header>
+
+  <!-- Image Carousel -->
+  <div class="relative w-full">
+    <div class="flex snap-x snap-mandatory overflow-x-auto no-scrollbar" id="image-carousel">
+      <div class="w-full flex-shrink-0 snap-center">
+        <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_8yZyB4vCXPuA3tqJWDkB15BOWmwutnzjOCabbsfch-RbAYk7a660-35ox9akMk7erMJRi0WiT6M0psNgdJZf7HaVamZxE5rbg05kQbuOlP4ab711p6ES6WXYJGrZ3q5Ny_ve5O_cp741WeK6Pe6BFVaMO62j8H34pM54_CaH5z65jX_utWMHL_8qVs3cxws7I2zktEwDE-lK2uURukJurYiHvOnijEEeGFdDgsT88tWn_F4CocxWWk8q9axPF_8qBJb6N47Ow3M");'></div>
+      </div>
+      <div class="w-full flex-shrink-0 snap-center">
+        <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y");'></div>
+      </div>
+      <div class="w-full flex-shrink-0 snap-center">
+        <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAheuzResUillQWmyZPmnczm2BgwMjhLyAYdBUOExkFyM8OoI6KjuoUffBpBClHOpghJxLdUjnPVIDkGulo1glqcXxC29CLTgta9En3Mk-wfVRhRvJ4w1GOHUDdfIqKzWLLjPeguvYKYxcOkGO7jYqPrvUz_B0ItjpdcZ5VEvJOJCZoOSQyGmtjW1SF2u1ngOCo-9VMHelpdML0HyJu9plJorHkVa7P2IuvsUkbxqTP85YrRNUSRhRzNBoHbfXEaPAn9rq_AcgNGEY");'></div>
+      </div>
+    </div>
+    <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2" id="carousel-dots">
+      <div class="h-2 w-2 rounded-full bg-white opacity-100" data-index="0"></div>
+      <div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="1"></div>
+      <div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="2"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="p-4 space-y-4">
+    <!-- Title -->
+    <h2 class="text-3xl font-bold text-secondary">ノマドカフェ渋谷</h2>
+
+    <!-- Time Score Card -->
+    <div class="bg-white rounded-xl p-5 shadow-sm">
+      <h3 class="text-lg font-bold text-secondary mb-4">時間帯スコア</h3>
+      <div class="flex items-end justify-between gap-2">
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <div class="text-xs text-gray-500">平日朝</div>
+          <div class="relative h-24 w-full overflow-hidden rounded-lg bg-gray-100">
+            <div class="absolute bottom-0 w-full bg-primary transition-all" style="height: 65%"></div>
+          </div>
+          <div class="text-lg font-bold text-secondary">65</div>
+        </div>
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <div class="text-xs text-gray-500">平日昼</div>
+          <div class="relative h-24 w-full overflow-hidden rounded-lg bg-gray-100">
+            <div class="absolute bottom-0 w-full bg-primary transition-all" style="height: 85%"></div>
+          </div>
+          <div class="text-lg font-bold text-secondary">85</div>
+        </div>
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <div class="text-xs text-gray-500">平日午後</div>
+          <div class="relative h-24 w-full overflow-hidden rounded-lg bg-gray-100">
+            <div class="absolute bottom-0 w-full bg-accent transition-all" style="height: 95%"></div>
+          </div>
+          <div class="text-lg font-bold text-secondary">95</div>
+        </div>
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <div class="text-xs text-gray-500">平日夜</div>
+          <div class="relative h-24 w-full overflow-hidden rounded-lg bg-gray-100">
+            <div class="absolute bottom-0 w-full bg-primary transition-all" style="height: 70%"></div>
+          </div>
+          <div class="text-lg font-bold text-secondary">70</div>
+        </div>
+      </div>
+      <p class="mt-3 text-center text-xs text-gray-500">※スコアはAIによる予測値であり、実際の空席を保証するものではありません。</p>
+    </div>
+
+    <!-- Info Card -->
+    <div class="bg-white rounded-xl p-5 shadow-sm space-y-5">
+      <!-- Trust Score -->
+      <div class="flex items-center justify-between">
+        <p class="font-bold text-secondary">信頼度</p>
+        <div class="flex items-center gap-2">
+          <div class="h-2.5 w-24 rounded-full bg-gray-100">
+            <div class="h-2.5 rounded-full bg-accent" style="width: 88%"></div>
+          </div>
+          <p class="text-sm font-bold text-secondary">88%</p>
+        </div>
+      </div>
+
+      <!-- Review Trends -->
+      <div class="space-y-3">
+        <p class="font-bold text-secondary">口コミ傾向</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">長居しやすい</span>
+          <span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">PC作業向き</span>
+          <span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">静か</span>
+          <span class="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600">コンセントあり</span>
+        </div>
+      </div>
+
+      <!-- Score Breakdown -->
+      <div class="space-y-3">
+        <p class="font-bold text-secondary">スコア内訳</p>
+        <div class="space-y-2">
+          <div class="flex items-center gap-4">
+            <span class="w-24 text-sm text-gray-600">座席保証</span>
+            <div class="h-2 flex-1 rounded-full bg-gray-100">
+              <div class="h-2 rounded-full bg-accent" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-24 text-sm text-gray-600">環境快適度</span>
+            <div class="h-2 flex-1 rounded-full bg-gray-100">
+              <div class="h-2 rounded-full bg-accent" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="w-24 text-sm text-gray-600">滞在歓迎度</span>
+            <div class="h-2 flex-1 rounded-full bg-gray-100">
+              <div class="h-2 rounded-full bg-accent" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Location Card -->
+    <div class="bg-white rounded-xl p-4 shadow-sm space-y-4">
+      <div class="h-40 w-full rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y");'></div>
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-gray-600">location_on</span>
+        <p class="flex-1 text-sm text-secondary">東京都渋谷区神南１丁目２２−１４</p>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <a class="flex items-center justify-center gap-2 rounded-lg bg-gray-100 py-3 text-sm font-bold text-secondary hover:bg-gray-200 transition-colors" href="#">
+          <span class="material-symbols-outlined text-primary">map</span>
+          <span>地図</span>
+        </a>
+        <a class="flex items-center justify-center gap-2 rounded-lg bg-gray-100 py-3 text-sm font-bold text-secondary hover:bg-gray-200 transition-colors" href="#">
+          <span class="material-symbols-outlined text-primary">phone</span>
+          <span>電話</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg">
+    <div class="flex justify-around max-w-md mx-auto">
+      <a class="flex flex-col items-center justify-center text-primary py-3 px-4 w-1/3" href="home.html">
+        <span class="material-symbols-outlined filled text-3xl">search</span>
+        <span class="text-xs font-bold mt-1">探す</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary py-3 px-4 w-1/3 transition-colors" href="history.html">
+        <span class="material-symbols-outlined text-3xl">history</span>
+        <span class="text-xs font-medium mt-1">履歴</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary py-3 px-4 w-1/3 transition-colors" href="settings.html">
+        <span class="material-symbols-outlined text-3xl">settings</span>
+        <span class="text-xs font-medium mt-1">設定</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    const carousel = document.getElementById('image-carousel');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const dots = dotsContainer.children;
+    
+    carousel.addEventListener('scroll', () => {
+      const scrollLeft = carousel.scrollLeft;
+      const itemWidth = carousel.firstElementChild.clientWidth;
+      const activeIndex = Math.round(scrollLeft / itemWidth);
+      
+      for (let i = 0; i < dots.length; i++) {
+        if (i === activeIndex) {
+          dots[i].classList.add('opacity-100');
+          dots[i].classList.remove('opacity-50');
+        } else {
+          dots[i].classList.add('opacity-50');
+          dots[i].classList.remove('opacity-100');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

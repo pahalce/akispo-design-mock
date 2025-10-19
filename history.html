@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AkiSpot - 履歴</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF7F50',
+            secondary: '#2C3E50',
+            accent: '#FFD700',
+            'background-light': '#F5F5F5',
+            'card-light': '#FFFFFF',
+            'text-light': '#2C3E50',
+          },
+          fontFamily: {
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      min-height: 100vh;
+      background-color: #F5F5F5;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .tab-active {
+      border-bottom: 2px solid #FF7F50;
+      color: #FF7F50;
+      font-weight: 700;
+    }
+    .tab-inactive {
+      border-bottom: 2px solid transparent;
+      color: #848FAC;
+    }
+  </style>
+</head>
+<body class="pb-24">
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-20">
+    <div class="flex items-center justify-center p-4">
+      <h2 class="text-lg font-bold text-secondary">履歴</h2>
+    </div>
+    <div class="flex justify-around border-b border-gray-200">
+      <button class="w-full py-3 text-sm tab-active" onclick="switchTab('yes')">YESしたスポット</button>
+      <button class="w-full py-3 text-sm tab-inactive" onclick="switchTab('viewed')">閲覧したスポット</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="p-4">
+    <div class="space-y-4" id="content-container">
+      <!-- Content will be populated by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg">
+    <div class="flex justify-around max-w-md mx-auto">
+      <a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary py-3 px-4 w-1/3 transition-colors" href="home.html">
+        <span class="material-symbols-outlined text-3xl">search</span>
+        <span class="text-xs font-medium mt-1">探す</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-primary py-3 px-4 w-1/3" href="history.html">
+        <span class="material-symbols-outlined filled text-3xl">history</span>
+        <span class="text-xs font-bold mt-1">履歴</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary py-3 px-4 w-1/3 transition-colors" href="settings.html">
+        <span class="material-symbols-outlined text-3xl">settings</span>
+        <span class="text-xs font-medium mt-1">設定</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    const yesSpotsData = [
+      {
+        name: "カフェ・ベローチェ",
+        date: "2024/07/28 15:00",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBnZZFuCs6SsWdySJkCr-x5CKx88Xm4vvbdhkVdClylk9dMmYTeMC2a5uxOL3iTNWiDNHGvApiY0bKGbFoFe6RIKhSJj3rqruDfjgsr7WBv5Su_E-4c0xaoHBA5pU36GxZhqtYPGuQvmbl71QOX5eUwbSSruUj58B8IdpkL3xGy8O-svgvg0sFfzpNLof5-wOk_Auf-wTSA2cZqo5-vKwH4Md4KnAov84j5yMy7b5Kw-Ohf0OHEHl6k11ibCe7jui51eerhY4GM2Mk",
+        warning: null,
+        badge: "YES"
+      },
+      {
+        name: "ルノアール",
+        date: "2024/07/27 11:30",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCi-RkrwxKWwdtOzBfuLJIFPXZD0kjiqWPKXStW34ZN-FvPtGBQzPuRTa3qCqca2W1b7405C5pbahPcBw8lr9lxTxP0kNkH4r7REO3JqIGHT9ff7lJT7JSkLzLyVcOBRPc6JayYqFOo-hMMP8tdFoHl4o2KCqRMyYtf2S2HnPYeDZLanxe9hs4GPiG9aIyH7IoK0Yk9bUItyzaz57M3Q4Hfd8DTkxY71ZHKZiNevXwAfKZqkyJHnxAzbyFgBifJW-eqPKWPrI7RUhI",
+        warning: "注意: 週末は混雑する可能性があります。長時間の利用は難しいかもしれません。",
+        badge: "YES"
+      },
+      {
+        name: "ドトールコーヒーショップ",
+        date: "2024/07/26 18:45",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDLfg1pNOUgox8OGC3Tk-omvFxx3QnQ-AUqWg1TOCbqdbp2J33cCI1hw9D-StvsVQHN9MJTqgMK4nPy6MYod_Rtq6VLq-N7i44AkGKycLjuVUbnrWFQepkCkTvYRoOAidgT8cVBESw3Y3aKPxM7K5vc4xQ2l2C2hsZodlH01XddiWcsYFTPTYg8Fuq51cwe03QJiefs0D0cnB0uvfcP9f7-hXq6I-XfKRnPucEXYK0fKcNSrymbzzDI5bwNSmNjbtHEF7iN-nGTBmY",
+        warning: null,
+        badge: "YES"
+      }
+    ];
+
+    const viewedSpotsData = [
+      {
+        name: "スターバックスコーヒー",
+        date: "2024/07/25 14:00",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA_8yZyB4vCXPuA3tqJWDkB15BOWmwutnzjOCabbsfch-RbAYk7a660-35ox9akMk7erMJRi0WiT6M0psNgdJZf7HaVamZxE5rbg05kQbuOlP4ab711p6ES6WXYJGrZ3q5Ny_ve5O_cp741WeK6Pe6BFVaMO62j8H34pM54_CaH5z65jX_utWMHL_8qVs3cxws7I2zktEwDE-lK2uURukJurYiHvOnijEEeGFdDgsT88tWn_F4CocxWWk8q9axPF_8qBJb6N47Ow3M",
+        warning: null,
+        badge: "閲覧"
+      },
+      {
+        name: "タリーズコーヒー",
+        date: "2024/07/24 10:15",
+        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y",
+        warning: null,
+        badge: "閲覧"
+      }
+    ];
+
+    function createSpotCard(spot) {
+      const badgeColor = spot.badge === "YES" ? "bg-green-500" : "bg-gray-400";
+      let warningHtml = '';
+      if (spot.warning) {
+        warningHtml = `
+          <div class="flex items-start gap-2 rounded-lg bg-orange-100 p-3 mt-4">
+            <span class="material-symbols-outlined text-orange-500 text-lg mt-0.5">warning</span>
+            <p class="text-xs text-orange-700">${spot.warning}</p>
+          </div>
+        `;
+      }
+      return `
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex items-start gap-4">
+            <div class="relative">
+              <img alt="${spot.name}" class="w-24 h-24 rounded-lg object-cover" src="${spot.image}"/>
+              <div class="absolute -top-2 -right-2 ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded-full shadow">
+                ${spot.badge}
+              </div>
+            </div>
+            <div class="flex-1">
+              <p class="text-base font-bold text-secondary">${spot.name}</p>
+              <p class="text-xs text-gray-500 mt-1">${spot.date}</p>
+            </div>
+          </div>
+          ${warningHtml}
+        </div>
+      `;
+    }
+
+    function renderContent(spots) {
+      const container = document.getElementById('content-container');
+      if (spots.length === 0) {
+        container.innerHTML = `
+          <div class="bg-white rounded-xl shadow-lg p-8 text-center mt-8">
+            <span class="material-symbols-outlined text-primary text-6xl mb-4 block">explore</span>
+            <h3 class="text-xl font-bold text-secondary mb-2">まだ利用したスポットがありません</h3>
+            <p class="text-gray-600 text-base">お気に入りのスポットを見つけにいきましょう！</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = spots.map(createSpotCard).join('');
+      }
+    }
+
+    function switchTab(tab) {
+      const tabs = document.querySelectorAll('.flex.justify-around button');
+      tabs.forEach((t, index) => {
+        if ((tab === 'yes' && index === 0) || (tab === 'viewed' && index === 1)) {
+          t.classList.remove('tab-inactive');
+          t.classList.add('tab-active');
+        } else {
+          t.classList.remove('tab-active');
+          t.classList.add('tab-inactive');
+        }
+      });
+
+      if (tab === 'yes') {
+        renderContent(yesSpotsData);
+      } else {
+        renderContent(viewedSpotsData);
+      }
+    }
+
+    // Initial render
+    renderContent(yesSpotsData);
+  </script>
+</body>
+</html>
+

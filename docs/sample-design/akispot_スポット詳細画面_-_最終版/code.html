@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AkiSpot Spot Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7F50", // Vibrant Coral/Orange
+                        "secondary": "#2C3E50", // Deep Teal/Navy
+                        "accent": "#FFD700", // Soft Yellow
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#122017",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#212e36",
+                        "text-light": "#2C3E50",
+                        "text-dark": "#EAEAEA",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Sans JP", "sans-serif"],
+                        "headline": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .snap-x {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-center {
+            scroll-snap-align: center;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden pb-28">
+<header class="sticky top-0 z-20 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 p-4 pb-2 backdrop-blur-sm">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-text-light hover:bg-black/10 dark:text-text-dark dark:hover:bg-white/10">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold font-headline">スポット詳細</h1>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-text-light hover:bg-black/10 dark:text-text-dark dark:hover:bg-white/10">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</header>
+<main class="flex flex-col">
+<div class="relative w-full">
+<div class="flex snap-x snap-mandatory overflow-x-auto no-scrollbar" id="image-carousel">
+<div class="w-full flex-shrink-0 snap-center">
+<div class="aspect-[4/3] w-full bg-cover bg-center" data-alt="A stylish cafe with comfortable seating and warm lighting." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_8yZyB4vCXPuA3tqJWDkB15BOWmwutnzjOCabbsfch-RbAYk7a660-35ox9akMk7erMJRi0WiT6M0psNgdJZf7HaVamZxE5rbg05kQbuOlP4ab711p6ES6WXYJGrZ3q5Ny_ve5O_cp741WeK6Pe6BFVaMO62j8H34pM54_CaH5z65jX_utWMHL_8qVs3cxws7I2zktEwDE-lK2uURukJurYiHvOnijEEeGFdDgsT88tWn_F4CocxWWk8q9axPF_8qBJb6N47Ow3M");'></div>
+</div>
+<div class="w-full flex-shrink-0 snap-center">
+<div class="aspect-[4/3] w-full bg-cover bg-center" data-alt="A bird's eye view of the cafe's interior." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y");'></div>
+</div>
+<div class="w-full flex-shrink-0 snap-center">
+<div class="aspect-[4/3] w-full bg-cover bg-center" data-alt="Close-up of a latte art in the cafe." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAheuzResUillQWmyZPmnczm2BgwMjhLyAYdBUOExkFyM8OoI6KjuoUffBpBClHOpghJxLdUjnPVIDkGulo1glqcXxC29CLTgta9En3Mk-wfVRhRvJ4w1GOHUDdfIqKzWLLjPeguvYKYxcOkGO7jYqPrvUz_B0ItjpdcZ5VEvJOJCZoOSQyGmtjW1SF2u1ngOCo-9VMHelpdML0HyJu9plJorHkVa7P2IuvsUkbxqTP85YrRNUSRhRzNBoHbfXEaPAn9rq_AcgNGEY");'></div>
+</div>
+</div>
+<div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2" id="carousel-dots">
+<div class="h-2 w-2 rounded-full bg-white opacity-100" data-index="0"></div>
+<div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="1"></div>
+<div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="2"></div>
+</div>
+</div>
+<h2 class="px-6 pb-2 pt-4 font-headline text-[32px] font-bold leading-tight tracking-tight text-text-light dark:text-text-dark">ノマドカフェ渋谷</h2>
+<div class="flex flex-col gap-4 p-4">
+<div class="rounded-xl bg-card-light p-5 shadow-sm dark:bg-card-dark">
+<h3 class="mb-4 text-lg font-bold">時間帯スコア</h3>
+<div class="flex items-end justify-between gap-2">
+<div class="flex flex-1 flex-col items-center gap-2">
+<div class="text-xs text-text-light/70 dark:text-text-dark/70">平日朝</div>
+<div class="relative h-24 w-full overflow-hidden rounded-lg bg-background-light dark:bg-background-dark">
+<div class="absolute bottom-0 w-full bg-primary" style="height: 65%"></div>
+</div>
+<div class="text-lg font-bold">65</div>
+</div>
+<div class="flex flex-1 flex-col items-center gap-2">
+<div class="text-xs text-text-light/70 dark:text-text-dark/70">平日昼</div>
+<div class="relative h-24 w-full overflow-hidden rounded-lg bg-background-light dark:bg-background-dark">
+<div class="absolute bottom-0 w-full bg-primary" style="height: 85%"></div>
+</div>
+<div class="text-lg font-bold">85</div>
+</div>
+<div class="flex flex-1 flex-col items-center gap-2">
+<div class="text-xs text-text-light/70 dark:text-text-dark/70">平日午後</div>
+<div class="relative h-24 w-full overflow-hidden rounded-lg bg-background-light dark:bg-background-dark">
+<div class="absolute bottom-0 w-full bg-accent" style="height: 95%"></div>
+</div>
+<div class="text-lg font-bold">95</div>
+</div>
+<div class="flex flex-1 flex-col items-center gap-2">
+<div class="text-xs text-text-light/70 dark:text-text-dark/70">平日夜</div>
+<div class="relative h-24 w-full overflow-hidden rounded-lg bg-background-light dark:bg-background-dark">
+<div class="absolute bottom-0 w-full bg-primary" style="height: 70%"></div>
+</div>
+<div class="text-lg font-bold">70</div>
+</div>
+</div>
+<p class="mt-3 text-center text-xs text-text-light/60 dark:text-text-dark/60">※スコアはAIによる予測値であり、実際の空席を保証するものではありません。</p>
+</div>
+<div class="flex flex-col gap-5 rounded-xl bg-card-light p-5 shadow-sm dark:bg-card-dark">
+<div class="flex items-center justify-between">
+<p class="font-bold">信頼度</p>
+<div class="flex items-center gap-2">
+<div class="h-2.5 w-24 rounded-full bg-background-light dark:bg-background-dark">
+<div class="h-2.5 rounded-full bg-accent" style="width: 88%"></div>
+</div>
+<p class="text-sm font-bold">88%</p>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold">口コミ傾向</p>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">長居しやすい</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">PC作業向き</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">静か</span>
+<span class="rounded-full bg-background-light px-3 py-1 text-sm font-medium text-text-light/70 dark:bg-card-dark dark:text-text-dark/70">コンセントあり</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold">スコア内訳</p>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-4">
+<span class="w-24 text-sm text-text-light/80 dark:text-text-dark/80">座席保証</span>
+<div class="h-2 flex-1 rounded-full bg-background-light dark:bg-background-dark">
+<div class="h-2 rounded-full bg-accent" style="width: 95%"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-24 text-sm text-text-light/80 dark:text-text-dark/80">環境快適度</span>
+<div class="h-2 flex-1 rounded-full bg-background-light dark:bg-background-dark">
+<div class="h-2 rounded-full bg-accent" style="width: 80%"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="w-24 text-sm text-text-light/80 dark:text-text-dark/80">滞在歓迎度</span>
+<div class="h-2 flex-1 rounded-full bg-background-light dark:bg-background-dark">
+<div class="h-2 rounded-full bg-accent" style="width: 75%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl bg-card-light p-4 shadow-sm dark:bg-card-dark">
+<div class="h-40 w-full rounded-lg bg-cover bg-center" data-location="Shibuya, Tokyo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y");'></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-text-light/80 dark:text-text-dark/80">location_on</span>
+<p class="flex-1 text-sm">東京都渋谷区神南１丁目２２−１４</p>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<a class="flex items-center justify-center gap-2 rounded-lg bg-background-light py-3 text-sm font-bold dark:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-primary">map</span>
+<span>地図</span>
+</a>
+<a class="flex items-center justify-center gap-2 rounded-lg bg-background-light py-3 text-sm font-bold dark:bg-background-dark" href="#">
+<span class="material-symbols-outlined text-primary">phone</span>
+<span>電話</span>
+</a>
+</div>
+</div>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex justify-around py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-text-light/70 dark:text-text-dark/70" href="#">
+<span class="material-symbols-outlined text-2xl text-primary">search</span>
+<span class="text-xs font-bold text-primary">探す</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-text-light/70 dark:text-text-dark/70" href="#">
+<span class="material-symbols-outlined text-2xl">history</span>
+<span class="text-xs font-bold">履歴</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-text-light/70 dark:text-text-dark/70" href="#">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-xs font-bold">設定</span>
+</a>
+</div>
+</nav>
+</div>
+<script>
+        const carousel = document.getElementById('image-carousel');
+        const dotsContainer = document.getElementById('carousel-dots');
+        const dots = dotsContainer.children;
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const itemWidth = carousel.firstElementChild.clientWidth;
+            const activeIndex = Math.round(scrollLeft / itemWidth);
+            for (let i = 0; i < dots.length; i++) {
+                if (i === activeIndex) {
+                    dots[i].classList.add('opacity-100');
+                    dots[i].classList.remove('opacity-50');
+                } else {
+                    dots[i].classList.add('opacity-50');
+                    dots[i].classList.remove('opacity-100');
+                }
+            }
+        });
+    </script>
+
+</body></html>
