@@ -7,115 +7,35 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-  <style type="text/tailwindcss">
-    :root {
-      --background-light: #F5F5F5;
-      --foreground: #2C3E50;
-      --card: #FFFFFF;
-      --card-foreground: #2C3E50;
-      --primary: #FF7F50;
-      --primary-foreground: #FFFFFF;
-      --secondary: #2C3E50;
-      --secondary-foreground: #FFFFFF;
-      --muted: #E5E7EB;
-      --muted-foreground: #6B7280;
-      --accent: #FFD700;
-      --destructive: #FC3D13;
-      --border: #E0E0E0;
-      --radius: 2rem;
-    }
-  </style>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            background: 'var(--background-light)',
-            foreground: 'var(--foreground)',
-            card: 'var(--card)',
-            'card-foreground': 'var(--card-foreground)',
-            primary: 'var(--primary)',
-            'primary-foreground': 'var(--primary-foreground)',
-            secondary: 'var(--secondary)',
-            'secondary-foreground': 'var(--secondary-foreground)',
-            muted: 'var(--muted)',
-            'muted-foreground': 'var(--muted-foreground)',
-            accent: 'var(--accent)',
-            destructive: 'var(--destructive)',
-            border: 'var(--border)',
-          },
-          fontFamily: {
-            sans: ['Noto Sans JP', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  
+  <!-- デザイントークン -->
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="tailwind-config.js"></script>
+  
   <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      min-height: 100vh;
-      min-height: 100dvh;
-      background-color: var(--background-light);
-      color: var(--foreground);
-    }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-    }
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-    }
-    
-    /* 地図のモックアップスタイル */
+    /* 地図のモックアップスタイル（ページ固有） */
     .map-container {
       position: relative;
       background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
       overflow: hidden;
     }
     
-    /* 道路風の線 */
     .map-road {
       position: absolute;
       background: #ffffff;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    
-    /* ピンのアニメーション */
-    @keyframes pin-bounce {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-10px) scale(1.1); }
-    }
-    
-    .pin-bounce {
-      animation: pin-bounce 0.5s ease-out;
-    }
-    
-    @keyframes ripple {
-      0% {
-        transform: scale(0.8);
-        opacity: 0.8;
-      }
-      100% {
-        transform: scale(2.5);
-        opacity: 0;
-      }
-    }
-    
-    .pin-ripple {
-      animation: ripple 1.5s ease-out infinite;
-    }
   </style>
 </head>
-<body class="bg-background text-foreground flex flex-col h-screen overflow-hidden">
+<body class="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased flex flex-col h-screen overflow-hidden">
   <!-- Header -->
-  <header class="bg-card shadow-sm p-4 flex items-center gap-4 relative z-20">
+  <header class="bg-white shadow-sm p-4 flex items-center gap-4 relative z-20">
     <a href="home.html" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors">
-      <span class="material-symbols-outlined text-secondary">arrow_back</span>
+      <span class="material-symbols-outlined icon-xl text-secondary">arrow_back</span>
     </a>
     <h1 class="text-lg font-bold text-secondary flex-1">地図から探す</h1>
     <button id="current-location-btn" class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition-colors">
-      <span class="material-symbols-outlined text-secondary">my_location</span>
+      <span class="material-symbols-outlined icon-xl text-secondary">my_location</span>
     </button>
   </header>
 
@@ -139,10 +59,10 @@
       <!-- User Pin (will be positioned on click) -->
       <div id="user-pin" class="absolute hidden flex-col items-center" style="transform: translate(-50%, -100%);">
         <!-- Ripple effect -->
-        <div class="absolute w-12 h-12 bg-primary rounded-full opacity-30 pin-ripple" style="top: 32px; left: 50%; transform: translate(-50%, -50%);"></div>
+        <div class="absolute w-12 h-12 bg-primary rounded-full opacity-30 animate-ripple" style="top: 32px; left: 50%; transform: translate(-50%, -50%);"></div>
         <!-- Pin icon -->
         <div class="relative">
-          <span class="material-symbols-outlined filled text-primary text-6xl drop-shadow-lg">location_on</span>
+          <span class="material-symbols-outlined filled icon-2xl text-primary drop-shadow-lg">location_on</span>
         </div>
       </div>
     </div>
@@ -150,17 +70,17 @@
     <!-- Zoom Controls -->
     <div class="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2 z-10">
       <button class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-        <span class="material-symbols-outlined text-secondary text-3xl">add</span>
+        <span class="material-symbols-outlined icon-lg text-secondary">add</span>
       </button>
       <button class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors">
-        <span class="material-symbols-outlined text-secondary text-3xl">remove</span>
+        <span class="material-symbols-outlined icon-lg text-secondary">remove</span>
       </button>
     </div>
 
     <!-- Instructions (show before pin is placed) -->
     <div id="instructions" class="absolute top-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-6 py-3 shadow-lg z-10">
       <div class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary text-xl">touch_app</span>
+        <span class="material-symbols-outlined icon-sm text-primary">touch_app</span>
         <span class="text-sm font-medium text-secondary">地図をタップしてエリアを選択</span>
       </div>
     </div>
@@ -173,20 +93,20 @@
         </div>
         <div class="flex-1">
           <h3 class="text-base font-bold text-secondary mb-1">選択したエリア</h3>
-          <p class="text-sm text-muted-foreground" id="location-name">渋谷駅周辺</p>
+          <p class="text-sm text-gray-600" id="location-name">渋谷駅周辺</p>
         </div>
         <button id="clear-pin" class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-gray-100 transition-colors">
-          <span class="material-symbols-outlined text-gray-400 text-xl">close</span>
+          <span class="material-symbols-outlined icon-sm text-gray-400">close</span>
         </button>
       </div>
     </div>
   </div>
 
   <!-- Bottom Action Button -->
-  <div class="bg-card shadow-lg p-4 relative z-20">
+  <div class="bg-white shadow-lg p-4 relative z-20">
     <button id="search-area-btn" class="w-full bg-primary text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:bg-primary/90 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed" disabled>
       <div class="flex items-center justify-center gap-2">
-        <span class="material-symbols-outlined">search</span>
+        <span class="material-symbols-outlined icon-xl">search</span>
         <span>このエリアで探す</span>
       </div>
     </button>
@@ -215,9 +135,9 @@
       userPin.classList.remove('hidden');
       
       // バウンスアニメーション
-      userPin.classList.remove('pin-bounce');
+      userPin.classList.remove('animate-pin-bounce');
       void userPin.offsetWidth; // リフロー
-      userPin.classList.add('pin-bounce');
+      userPin.classList.add('animate-pin-bounce');
       
       // UI更新
       if (!pinPlaced) {
@@ -252,9 +172,9 @@
       userPin.classList.remove('hidden');
       
       // バウンスアニメーション
-      userPin.classList.remove('pin-bounce');
+      userPin.classList.remove('animate-pin-bounce');
       void userPin.offsetWidth;
-      userPin.classList.add('pin-bounce');
+      userPin.classList.add('animate-pin-bounce');
       
       // UI更新
       instructions.classList.add('hidden');

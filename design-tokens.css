@@ -1,0 +1,278 @@
+/**
+ * AkiSpot Design Tokens
+ * 全てのページで共通で使用するデザイントークン定義
+ * 
+ * 原則:
+ * - Tailwindのデフォルトトークンをできるだけ使用
+ * - プロジェクト固有の色とカスタム設定のみここで定義
+ * - スペーシング、フォントサイズ等はTailwindデフォルトを使用
+ * - utility-firstの原則を守り、要素セレクタへのスタイル適用は避ける
+ */
+
+/* ===================================
+   プロジェクト固有のカラーパレット
+   =================================== */
+:root {
+  /* Primary Colors - AkiSpot独自カラー */
+  --color-primary: #FF7F50;
+  --color-primary-hover: #FF6A3C;
+  --color-primary-active: #E65A28;
+  
+  /* Secondary Colors - AkiSpot独自カラー */
+  --color-secondary: #2C3E50;
+  --color-secondary-hover: #1A252F;
+  
+  /* Accent Colors - AkiSpot独自カラー */
+  --color-accent: #FFD700;
+  --color-accent-hover: #FFC700;
+  
+  /* 互換性のための旧変数名（既存コードで使用中） */
+  --background-light: #F5F5F5;
+  --foreground: #2C3E50;
+  --card: #FFFFFF;
+  --card-foreground: #2C3E50;
+  --primary: #FF7F50;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2C3E50;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E5E7EB;
+  --muted-foreground: #6B7280;
+  --accent: #FFD700;
+  --accent-foreground: #2C3E50;
+  --destructive: #FC3D13;
+  --destructive-foreground: #FFFFFF;
+  --border: #E0E0E0;
+  --radius: 2rem;
+}
+
+/* ===================================
+   Z-Index管理（プロジェクト固有の階層定義）
+   =================================== */
+:root {
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-toast: 100;
+}
+
+/* ===================================
+   Material Symbols アイコン設定
+   用途別にクラスを定義（Tailwindのtext-*サイズとは独立）
+   =================================== */
+
+/* Material Symbols デフォルト設定（24px） */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 24px;
+  user-select: none;
+}
+
+/* アイコンサイズバリエーション（用途別） */
+.material-symbols-outlined.icon-sm {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  font-size: 20px;
+}
+
+.material-symbols-outlined.icon-lg {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 32;
+  font-size: 32px;
+}
+
+.material-symbols-outlined.icon-xl {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  font-size: 48px;
+}
+
+.material-symbols-outlined.icon-2xl {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 64;
+  font-size: 64px;
+}
+
+/* アイコンの塗りつぶし状態 */
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ===================================
+   共通アニメーション
+   =================================== */
+
+/* フェードイン */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in var(--transition-slow);
+}
+
+/* スライドアップ */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up var(--transition-slow) ease-out;
+}
+
+/* スライドダウン */
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down var(--transition-slow) ease-out;
+}
+
+/* スケール（拡大） */
+@keyframes scale-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in var(--transition-base) ease-out;
+}
+
+/* バウンス */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* パルス（脈動） */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* スピナー（回転） */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* リップル効果 */
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 1.5s ease-out infinite;
+}
+
+/* ピンバウンス（地図用） */
+@keyframes pin-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1);
+  }
+}
+
+.animate-pin-bounce {
+  animation: pin-bounce 0.5s ease-out;
+}
+
+/* ===================================
+   ユーティリティクラス
+   =================================== */
+
+/* スクロールバー非表示 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* スナップスクロール */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+/* トランケート（テキスト省略） */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===================================
+   フォーカス時のアウトライン（アクセシビリティ）
+   これは全体的なアクセシビリティのため残します
+   =================================== */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+

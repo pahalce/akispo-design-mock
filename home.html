@@ -8,104 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-  <style type="text/tailwindcss">
-    :root {
-      --background-light: #F5F5F5;
-      --foreground: #2C3E50;
-      --card: #FFFFFF;
-      --card-foreground: #2C3E50;
-      --primary: #FF7F50;
-      --primary-foreground: #FFFFFF;
-      --secondary: #2C3E50;
-      --secondary-foreground: #FFFFFF;
-      --muted: #E5E7EB;
-      --muted-foreground: #6B7280;
-      --accent: #FFD700;
-      --accent-foreground: #2C3E50;
-      --destructive: #FC3D13;
-      --destructive-foreground: #FFFFFF;
-      --border: #E0E0E0;
-      --radius: 2rem;
-    }
-  </style>
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            background: 'var(--background-light)',
-            foreground: 'var(--foreground)',
-            card: 'var(--card)',
-            'card-foreground': 'var(--card-foreground)',
-            primary: 'var(--primary)',
-            'primary-foreground': 'var(--primary-foreground)',
-            secondary: 'var(--secondary)',
-            'secondary-foreground': 'var(--secondary-foreground)',
-            muted: 'var(--muted)',
-            'muted-foreground': 'var(--muted-foreground)',
-            accent: 'var(--accent)',
-            'accent-foreground': 'var(--accent-foreground)',
-            destructive: 'var(--destructive)',
-            'destructive-foreground': 'var(--destructive-foreground)',
-            border: 'var(--border)',
-          },
-          fontFamily: {
-            sans: ['Noto Sans JP', 'sans-serif'],
-            serif: ['Noto Serif', 'serif'],
-          },
-          borderRadius: {
-            '4xl': '2rem',
-            '5xl': 'var(--radius)',
-          },
-          boxShadow: {
-            'card': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-          }
-        },
-      },
-    }
-  </script>
-  <style>
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      min-height: 100vh;
-      min-height: 100dvh;
-      background-color: var(--background-light);
-      color: var(--foreground);
-    }
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-    }
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
-    }
-    @keyframes slide-up {
-      from {
-        transform: translateY(100%);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
-    .animate-slide-up {
-      animation: slide-up 0.3s ease-out;
-    }
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-    .animate-fade-in {
-      animation: fade-in 0.3s ease-out;
-    }
-  </style>
+  
+  <!-- デザイントークン -->
+  <link rel="stylesheet" href="design-tokens.css">
+  <script src="tailwind-config.js"></script>
 </head>
-<body class="bg-background text-foreground flex flex-col h-screen">
+<body class="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased flex flex-col h-screen">
   <!-- Header -->
-  <header class="bg-card shadow-sm p-4 flex justify-end relative z-10">
+  <header class="bg-white shadow-sm p-4 flex justify-end relative z-10">
     <a href="select-map.html" class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors">
       <span class="material-symbols-outlined">map</span>
       <span class="text-sm font-medium">地図から探す</span>
@@ -134,22 +44,22 @@
           <!-- Badge -->
           <div class="absolute bottom-4 left-4 right-4">
             <div class="bg-primary text-white rounded-full px-4 py-2 text-sm font-bold inline-flex items-center gap-2 shadow-lg">
-              <span class="material-symbols-outlined filled text-lg">chair</span>
+              <span class="material-symbols-outlined filled icon-sm">chair</span>
               <span>座れそう？</span>
             </div>
           </div>
         </div>
         
         <!-- Info Section -->
-        <div class="p-6 text-card-foreground bg-card flex-shrink-0">
+        <div class="p-6 text-gray-900 bg-white flex-shrink-0">
           <h2 class="text-3xl font-bold">FREEMAN CAFE</h2>
-          <div class="flex items-center gap-2 mt-2 text-muted-foreground">
+          <div class="flex items-center gap-2 mt-2 text-gray-600">
             <div class="flex items-center gap-1">
-              <span class="material-symbols-outlined text-base">directions_walk</span>
+              <span class="material-symbols-outlined icon-sm">directions_walk</span>
               <span class="text-base font-medium">徒歩3分</span>
             </div>
             <div class="flex items-center gap-1">
-              <span class="material-symbols-outlined text-base">map</span>
+              <span class="material-symbols-outlined icon-sm">map</span>
               <span class="text-base font-medium">渋谷</span>
             </div>
           </div>
@@ -157,7 +67,7 @@
           <!-- Detail Link -->
           <a href="detail.html" class="inline-flex items-center gap-1 mt-3 text-primary hover:text-primary/80 transition-colors" onclick="event.stopPropagation()">
             <span class="text-sm font-medium">詳細を見る</span>
-            <span class="material-symbols-outlined text-lg">chevron_right</span>
+            <span class="material-symbols-outlined icon-sm">chevron_right</span>
           </a>
         </div>
       </div>
@@ -166,10 +76,10 @@
     <!-- Action Buttons -->
     <div class="flex justify-center items-center gap-8">
       <button id="no-button" class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-105 transition-transform active:scale-95">
-        <span class="material-symbols-outlined text-destructive text-5xl" style="color: var(--destructive);">close</span>
+        <span class="material-symbols-outlined icon-xl text-destructive">close</span>
       </button>
       <button id="yes-button" class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-105 transition-transform active:scale-95">
-        <span class="material-symbols-outlined text-primary text-5xl" style="color: var(--primary);">near_me</span>
+        <span class="material-symbols-outlined icon-xl text-primary">near_me</span>
       </button>
     </div>
   </main>
@@ -179,7 +89,7 @@
     <!-- Overlay -->
     <div id="dialog-overlay" class="absolute inset-0 flex h-full w-full flex-col justify-end items-stretch bg-black/60 animate-fade-in">
       <!-- Bottom Sheet Dialog -->
-      <div class="flex flex-col items-stretch bg-card rounded-t-3xl animate-slide-up shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex flex-col items-stretch bg-white rounded-t-3xl animate-slide-up shadow-2xl" onclick="event.stopPropagation()">
         <!-- Handle -->
         <button id="dialog-handle" class="flex h-5 w-full items-center justify-center pt-3 pb-2 cursor-pointer">
           <div class="h-1.5 w-10 rounded-full bg-gray-300"></div>
@@ -218,18 +128,18 @@
   </div>
 
   <!-- Bottom Navigation -->
-  <nav class="fixed bottom-0 left-0 right-0 bg-card shadow-t-lg z-30">
+  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-30">
     <div class="flex justify-around max-w-sm mx-auto">
       <a class="flex flex-col items-center justify-center text-primary py-2 px-4 w-1/3 text-center" href="home.html">
-        <span class="material-symbols-outlined filled text-3xl">search</span>
+        <span class="material-symbols-outlined filled icon-lg">search</span>
         <span class="text-xs font-bold">探す</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-muted-foreground hover:text-primary py-2 px-4 w-1/3 text-center transition-colors" href="history.html">
-        <span class="material-symbols-outlined text-3xl">history</span>
+      <a class="flex flex-col items-center justify-center text-gray-600 hover:text-primary py-2 px-4 w-1/3 text-center transition-colors" href="history.html">
+        <span class="material-symbols-outlined icon-lg">history</span>
         <span class="text-xs font-bold">履歴</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-muted-foreground hover:text-primary py-2 px-4 w-1/3 text-center transition-colors" href="settings.html">
-        <span class="material-symbols-outlined text-3xl">settings</span>
+      <a class="flex flex-col items-center justify-center text-gray-600 hover:text-primary py-2 px-4 w-1/3 text-center transition-colors" href="settings.html">
+        <span class="material-symbols-outlined icon-lg">settings</span>
         <span class="text-xs font-bold">設定</span>
       </a>
     </div>
