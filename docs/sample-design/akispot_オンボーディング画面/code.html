@@ -113,10 +113,26 @@
       min-height: max(884px, 100dvh);
     }
   </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
   </head>
 <body class="bg-background text-foreground">
 <div class="flex flex-col h-full">
-<main class="flex-grow flex flex-col items-center justify-center p-4">
+<header class="p-4 flex justify-end">
+<button class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">map</span>
+<span class="text-sm font-medium">地図から探す</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center p-4 pt-0">
 <div class="relative w-full max-w-sm aspect-[3/4.5] mx-auto mb-8">
 <div class="absolute w-full h-full transform -translate-y-6 scale-90 opacity-50 bg-white/50 rounded-5xl"></div>
 <div class="absolute w-full h-full transform -translate-y-3 scale-95 opacity-75 bg-white/70 rounded-5xl"></div>
@@ -153,7 +169,7 @@
 <span class="material-symbols-outlined text-destructive text-5xl" style="color: var(--destructive);">close</span>
 </button>
 <button class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-primary text-5xl" style="color: var(--primary);">favorite</span>
+<span class="material-symbols-outlined text-primary text-5xl" style="color: var(--primary);">near_me</span>
 </button>
 </div>
 </main>

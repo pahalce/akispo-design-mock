@@ -8,25 +8,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <style type="text/tailwindcss">
+    :root {
+      --background-light: #F5F5F5;
+      --foreground: #2C3E50;
+      --card: #FFFFFF;
+      --card-foreground: #2C3E50;
+      --primary: #FF7F50;
+      --primary-foreground: #FFFFFF;
+      --secondary: #2C3E50;
+      --secondary-foreground: #FFFFFF;
+      --muted: #E5E7EB;
+      --muted-foreground: #6B7280;
+      --accent: #FFD700;
+      --accent-foreground: #2C3E50;
+      --destructive: #FC3D13;
+      --destructive-foreground: #FFFFFF;
+      --border: #E0E0E0;
+      --radius: 2rem;
+    }
+  </style>
   <script>
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            primary: '#FF7F50',
-            secondary: '#2C3E50',
-            accent: '#FFD700',
-            'background-light': '#F5F5F5',
-            'card-light': '#FFFFFF',
-            'text-light': '#2C3E50',
+            background: 'var(--background-light)',
+            foreground: 'var(--foreground)',
+            card: 'var(--card)',
+            'card-foreground': 'var(--card-foreground)',
+            primary: 'var(--primary)',
+            'primary-foreground': 'var(--primary-foreground)',
+            secondary: 'var(--secondary)',
+            'secondary-foreground': 'var(--secondary-foreground)',
+            muted: 'var(--muted)',
+            'muted-foreground': 'var(--muted-foreground)',
+            accent: 'var(--accent)',
+            'accent-foreground': 'var(--accent-foreground)',
+            destructive: 'var(--destructive)',
+            'destructive-foreground': 'var(--destructive-foreground)',
+            border: 'var(--border)',
           },
           fontFamily: {
             sans: ['Noto Sans JP', 'sans-serif'],
             serif: ['Noto Serif', 'serif'],
           },
           borderRadius: {
-            '5xl': '2rem',
+            '4xl': '2rem',
+            '5xl': 'var(--radius)',
           },
+          boxShadow: {
+            'card': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+          }
         },
       },
     }
@@ -35,7 +69,9 @@
     body {
       font-family: 'Noto Sans JP', sans-serif;
       min-height: 100vh;
-      background-color: #F5F5F5;
+      min-height: 100dvh;
+      background-color: var(--background-light);
+      color: var(--foreground);
     }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
@@ -67,14 +103,17 @@
     }
   </style>
 </head>
-<body class="flex flex-col h-screen">
+<body class="bg-background text-foreground flex flex-col h-screen">
   <!-- Header -->
-  <header class="bg-white shadow-sm py-4 px-6">
-    <h1 class="text-2xl font-bold text-center text-secondary">AkiSpot</h1>
+  <header class="bg-card shadow-sm p-4 flex justify-end relative z-10">
+    <a href="select-map.html" class="flex items-center gap-1.5 text-secondary hover:text-primary transition-colors">
+      <span class="material-symbols-outlined">map</span>
+      <span class="text-sm font-medium">地図から探す</span>
+    </a>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow flex flex-col items-center justify-center p-4 pb-24">
+  <main class="flex-grow flex flex-col items-center justify-center p-4 pt-0 pb-24">
     <!-- Card Stack -->
     <div class="relative w-full max-w-sm aspect-[3/4.5] mx-auto mb-8">
       <!-- Background Cards (Stack Effect) -->
@@ -82,7 +121,7 @@
       <div class="absolute w-full h-full transform -translate-y-3 scale-95 opacity-75 bg-white/70 rounded-5xl"></div>
       
       <!-- Main Card -->
-      <div class="absolute w-full h-full bg-white rounded-5xl overflow-hidden shadow-xl flex flex-col">
+      <div id="main-card" class="absolute w-full h-full bg-white rounded-5xl overflow-hidden shadow-xl flex flex-col cursor-pointer hover:shadow-2xl transition-shadow">
         <!-- Image Section -->
         <div class="flex-grow relative">
           <img 
@@ -102,9 +141,9 @@
         </div>
         
         <!-- Info Section -->
-        <div class="p-6 text-secondary bg-white flex-shrink-0">
+        <div class="p-6 text-card-foreground bg-card flex-shrink-0">
           <h2 class="text-3xl font-bold">FREEMAN CAFE</h2>
-          <div class="flex items-center gap-4 mt-2 text-gray-600">
+          <div class="flex items-center gap-2 mt-2 text-muted-foreground">
             <div class="flex items-center gap-1">
               <span class="material-symbols-outlined text-base">directions_walk</span>
               <span class="text-base font-medium">徒歩3分</span>
@@ -116,7 +155,7 @@
           </div>
           
           <!-- Detail Link -->
-          <a href="detail.html" class="inline-flex items-center gap-1 mt-3 text-primary hover:text-primary/80 transition-colors">
+          <a href="detail.html" class="inline-flex items-center gap-1 mt-3 text-primary hover:text-primary/80 transition-colors" onclick="event.stopPropagation()">
             <span class="text-sm font-medium">詳細を見る</span>
             <span class="material-symbols-outlined text-lg">chevron_right</span>
           </a>
@@ -126,23 +165,23 @@
 
     <!-- Action Buttons -->
     <div class="flex justify-center items-center gap-8">
-      <button class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform active:scale-95">
-        <span class="material-symbols-outlined text-red-500 text-5xl">close</span>
+      <button id="no-button" class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-105 transition-transform active:scale-95">
+        <span class="material-symbols-outlined text-destructive text-5xl" style="color: var(--destructive);">close</span>
       </button>
-      <button id="yes-button" class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-110 transition-transform active:scale-95">
-        <span class="material-symbols-outlined text-primary text-5xl">favorite</span>
+      <button id="yes-button" class="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center transform hover:scale-105 transition-transform active:scale-95">
+        <span class="material-symbols-outlined text-primary text-5xl" style="color: var(--primary);">near_me</span>
       </button>
     </div>
   </main>
 
   <!-- Match Dialog Modal -->
-  <div id="match-dialog" class="fixed inset-0 z-50 hidden">
+  <div id="match-dialog" class="fixed inset-0 z-[100] hidden">
     <!-- Overlay -->
-    <div class="absolute inset-0 flex h-full w-full flex-col justify-end items-stretch bg-black/60 animate-fade-in">
+    <div id="dialog-overlay" class="absolute inset-0 flex h-full w-full flex-col justify-end items-stretch bg-black/60 animate-fade-in">
       <!-- Bottom Sheet Dialog -->
-      <div class="flex flex-col items-stretch bg-background-light rounded-t-3xl animate-slide-up">
+      <div class="flex flex-col items-stretch bg-card rounded-t-3xl animate-slide-up shadow-2xl" onclick="event.stopPropagation()">
         <!-- Handle -->
-        <button class="flex h-5 w-full items-center justify-center pt-3 pb-2">
+        <button id="dialog-handle" class="flex h-5 w-full items-center justify-center pt-3 pb-2 cursor-pointer">
           <div class="h-1.5 w-10 rounded-full bg-gray-300"></div>
         </button>
 
@@ -179,32 +218,60 @@
   </div>
 
   <!-- Bottom Navigation -->
-  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg">
-    <div class="flex justify-around max-w-md mx-auto">
-      <a class="flex flex-col items-center justify-center text-primary py-3 px-4 w-1/3" href="home.html">
+  <nav class="fixed bottom-0 left-0 right-0 bg-card shadow-t-lg z-30">
+    <div class="flex justify-around max-w-sm mx-auto">
+      <a class="flex flex-col items-center justify-center text-primary py-2 px-4 w-1/3 text-center" href="home.html">
         <span class="material-symbols-outlined filled text-3xl">search</span>
-        <span class="text-xs font-bold mt-1">探す</span>
+        <span class="text-xs font-bold">探す</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary py-3 px-4 w-1/3 transition-colors" href="history.html">
+      <a class="flex flex-col items-center justify-center text-muted-foreground hover:text-primary py-2 px-4 w-1/3 text-center transition-colors" href="history.html">
         <span class="material-symbols-outlined text-3xl">history</span>
-        <span class="text-xs font-medium mt-1">履歴</span>
+        <span class="text-xs font-bold">履歴</span>
       </a>
-      <a class="flex flex-col items-center justify-center text-gray-400 hover:text-primary py-3 px-4 w-1/3 transition-colors" href="settings.html">
+      <a class="flex flex-col items-center justify-center text-muted-foreground hover:text-primary py-2 px-4 w-1/3 text-center transition-colors" href="settings.html">
         <span class="material-symbols-outlined text-3xl">settings</span>
-        <span class="text-xs font-medium mt-1">設定</span>
+        <span class="text-xs font-bold">設定</span>
       </a>
     </div>
   </nav>
 
   <script>
+    // カード全体をクリックで詳細画面へ
+    document.getElementById('main-card').addEventListener('click', (e) => {
+      // YES/NOボタンのクリックは除外
+      if (!e.target.closest('#yes-button') && !e.target.closest('#no-button')) {
+        window.location.href = 'detail.html';
+      }
+    });
+
     // YESボタンクリックでダイアログを表示
-    document.getElementById('yes-button').addEventListener('click', () => {
+    document.getElementById('yes-button').addEventListener('click', (e) => {
+      e.stopPropagation(); // カードのクリックイベントを止める
       document.getElementById('match-dialog').classList.remove('hidden');
       document.body.style.overflow = 'hidden'; // スクロールを無効化
     });
 
+    // NOボタンクリック（モックアップなので何もしない）
+    document.getElementById('no-button').addEventListener('click', (e) => {
+      e.stopPropagation(); // カードのクリックイベントを止める
+      // 実際には次のカードを表示する処理
+      console.log('NO button clicked');
+    });
+
     // 閉じるボタンクリックでダイアログを非表示
     document.getElementById('close-dialog').addEventListener('click', () => {
+      document.getElementById('match-dialog').classList.add('hidden');
+      document.body.style.overflow = ''; // スクロールを有効化
+    });
+
+    // オーバーレイクリックでダイアログを非表示
+    document.getElementById('dialog-overlay').addEventListener('click', () => {
+      document.getElementById('match-dialog').classList.add('hidden');
+      document.body.style.overflow = ''; // スクロールを有効化
+    });
+
+    // ハンドルクリックでダイアログを非表示
+    document.getElementById('dialog-handle').addEventListener('click', () => {
       document.getElementById('match-dialog').classList.add('hidden');
       document.body.style.overflow = ''; // スクロールを有効化
     });
