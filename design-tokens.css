@@ -29,6 +29,27 @@
   /* Destructive Color */
   --color-destructive: #FC3D13;
   
+  /* Background Colors - Light/Dark Mode */
+  --color-background-light: #F5F5F5;
+  --color-background-dark: #0f1923;
+  
+  /* Card Colors - Light/Dark Mode */
+  --color-card-light: #FFFFFF;
+  --color-card-dark: #212e36;
+  
+  /* Text Colors - Light/Dark Mode */
+  --color-text-light: #2C3E50;
+  --color-text-dark: #EAEAEA;
+  
+  /* Congestion Level Colors */
+  --color-congestion-low: #3B82F6;
+  --color-congestion-medium: #FBBF24;
+  --color-congestion-high: #EF4444;
+  
+  /* Chip/Tag Colors */
+  --color-chip-positive: #3B82F6;
+  --color-chip-negative: #EF4444;
+  
   /* Layout Sizes */
   --header-height: 64px;
   --icon-button-size: 40px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="light" lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,28 +24,28 @@
     </button>
   </header>
 
-  <!-- Image Carousel -->
-  <div class="relative w-full">
-    <div class="flex snap-x snap-mandatory overflow-x-auto" id="image-carousel">
-      <div class="w-full flex-shrink-0 snap-center">
-        <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_8yZyB4vCXPuA3tqJWDkB15BOWmwutnzjOCabbsfch-RbAYk7a660-35ox9akMk7erMJRi0WiT6M0psNgdJZf7HaVamZxE5rbg05kQbuOlP4ab711p6ES6WXYJGrZ3q5Ny_ve5O_cp741WeK6Pe6BFVaMO62j8H34pM54_CaH5z65jX_utWMHL_8qVs3cxws7I2zktEwDE-lK2uURukJurYiHvOnijEEeGFdDgsT88tWn_F4CocxWWk8q9axPF_8qBJb6N47Ow3M");'></div>
-      </div>
-      <div class="w-full flex-shrink-0 snap-center">
-        <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y");'></div>
-      </div>
-      <div class="w-full flex-shrink-0 snap-center">
-        <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAheuzResUillQWmyZPmnczm2BgwMjhLyAYdBUOExkFyM8OoI6KjuoUffBpBClHOpghJxLdUjnPVIDkGulo1glqcXxC29CLTgta9En3Mk-wfVRhRvJ4w1GOHUDdfIqKzWLLjPeguvYKYxcOkGO7jYqPrvUz_B0ItjpdcZ5VEvJOJCZoOSQyGmtjW1SF2u1ngOCo-9VMHelpdML0HyJu9plJorHkVa7P2IuvsUkbxqTP85YrRNUSRhRzNBoHbfXEaPAn9rq_AcgNGEY");'></div>
-      </div>
-    </div>
-    <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2" id="carousel-dots">
-      <div class="h-2 w-2 rounded-full bg-white opacity-100" data-index="0"></div>
-      <div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="1"></div>
-      <div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="2"></div>
-    </div>
-  </div>
-
   <!-- Main Content -->
   <main class="p-4 space-y-4">
+    <!-- Image Carousel -->
+    <div class="relative w-full">
+      <div class="flex overflow-x-auto" id="image-carousel">
+        <div class="w-full flex-shrink-0">
+          <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_8yZyB4vCXPuA3tqJWDkB15BOWmwutnzjOCabbsfch-RbAYk7a660-35ox9akMk7erMJRi0WiT6M0psNgdJZf7HaVamZxE5rbg05kQbuOlP4ab711p6ES6WXYJGrZ3q5Ny_ve5O_cp741WeK6Pe6BFVaMO62j8H34pM54_CaH5z65jX_utWMHL_8qVs3cxws7I2zktEwDE-lK2uURukJurYiHvOnijEEeGFdDgsT88tWn_F4CocxWWk8q9axPF_8qBJb6N47Ow3M");'></div>
+        </div>
+        <div class="w-full flex-shrink-0">
+          <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDO099dIWeR7LmRol2uMcgzXbB5o_njzCT0bMmJuRDnTaifMqBx3hLBo4HzMok-6oSRQ38OF8nIOsEKFQQXydWSTtdTWxP2k_iVtohjeSMDtTv9d8wnJ7B6LVRvSCLFgcDhkeoGrLD0nXuWpAbIj1qYTnPMZ451NexwUYQPWrsaISOE3P-GjtK1rhQtcXYGoqhwhv1iVNDZJxR0F-mJIJiwcH5c7ZhAT1uZox0mbnwD3PSAX7mas8-n4nuwZTAZXhEdS6LYKiega9Y");'></div>
+        </div>
+        <div class="w-full flex-shrink-0">
+          <div class="aspect-[4/3] w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAheuzResUillQWmyZPmnczm2BgwMjhLyAYdBUOExkFyM8OoI6KjuoUffBpBClHOpghJxLdUjnPVIDkGulo1glqcXxC29CLTgta9En3Mk-wfVRhRvJ4w1GOHUDdfIqKzWLLjPeguvYKYxcOkGO7jYqPrvUz_B0ItjpdcZ5VEvJOJCZoOSQyGmtjW1SF2u1ngOCo-9VMHelpdML0HyJu9plJorHkVa7P2IuvsUkbxqTP85YrRNUSRhRzNBoHbfXEaPAn9rq_AcgNGEY");'></div>
+        </div>
+      </div>
+      <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2" id="carousel-dots">
+        <div class="h-2 w-2 rounded-full bg-white opacity-100" data-index="0"></div>
+        <div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="1"></div>
+        <div class="h-2 w-2 rounded-full bg-white opacity-50" data-index="2"></div>
+      </div>
+    </div>
+
     <!-- Title -->
     <h2 class="text-3xl font-bold text-secondary">ノマドカフェ渋谷</h2>
 
@@ -196,4 +196,3 @@
   </script>
 </body>
 </html>
-

@@ -35,6 +35,22 @@ tailwind.config = {
         destructive: {
           DEFAULT: 'var(--color-destructive)',
         },
+        // Background Colors
+        'background-light': 'var(--color-background-light)',
+        'background-dark': 'var(--color-background-dark)',
+        // Card Colors
+        'card-light': 'var(--color-card-light)',
+        'card-dark': 'var(--color-card-dark)',
+        // Text Colors
+        'text-light': 'var(--color-text-light)',
+        'text-dark': 'var(--color-text-dark)',
+        // Congestion Colors
+        'congestion-low': 'var(--color-congestion-low)',
+        'congestion-medium': 'var(--color-congestion-medium)',
+        'congestion-high': 'var(--color-congestion-high)',
+        // Chip Colors
+        'chip-positive': 'var(--color-chip-positive)',
+        'chip-negative': 'var(--color-chip-negative)',
       },
       
       /* フォントファミリー */

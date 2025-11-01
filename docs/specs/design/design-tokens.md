@@ -31,7 +31,7 @@ AkiSpotのデザイントークンは、Tailwind CSSのutility-firstの原則に
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
   
@@ -62,6 +62,32 @@ AkiSpotのデザイントークンは、Tailwind CSSのutility-firstの原則に
 
 <!-- Accent（ゴールド #FFD700） -->
 <div class="bg-accent text-secondary">スコア表示</div>
+```
+
+### ライト/ダークモード対応
+
+```html
+<!-- 背景色 -->
+<body class="bg-background-light dark:bg-background-dark">
+
+<!-- カードの背景 -->
+<div class="bg-card-light dark:bg-card-dark">
+  カードコンテンツ
+</div>
+
+<!-- テキスト -->
+<p class="text-text-light dark:text-text-dark">
+  テキスト
+</p>
+
+<!-- 混雑度カラー -->
+<div class="bg-congestion-low">空いています</div>
+<div class="bg-congestion-medium">やや混雑</div>
+<div class="bg-congestion-high">混雑</div>
+
+<!-- チップ/タグカラー -->
+<span class="bg-chip-positive text-white">ポジティブ</span>
+<span class="bg-chip-negative text-white">ネガティブ</span>
 ```
 
 ### レイアウトサイズ

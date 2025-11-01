@@ -37,13 +37,38 @@ AkiSpotのデザインシステムは「遊び心のあるスタイリッシュ�
 | サブテキスト | `#6B7280` | `text-gray-600` |
 | 無効テキスト | `#9CA3AF` | `text-gray-400` |
 
+### ライト/ダークモード
+
+| 用途 | ライトモード | ダークモード | Tailwindクラス |
+|------|------------|------------|----------------|
+| 背景 | `#F5F5F5` | `#0f1923` | `bg-background-light dark:bg-background-dark` |
+| カード | `#FFFFFF` | `#212e36` | `bg-card-light dark:bg-card-dark` |
+| テキスト | `#2C3E50` | `#EAEAEA` | `text-text-light dark:text-text-dark` |
+
+### 混雑度カラー
+
+| 用途 | カラー | 値 | 使用場面 |
+|------|--------|-----|----------|
+| 空いている | ブルー | `#3B82F6` | 混雑度低 |
+| やや混雑 | イエロー | `#FBBF24` | 混雑度中 |
+| 混雑 | レッド | `#EF4444` | 混雑度高 |
+
+### チップ/タグカラー
+
+| 用途 | カラー | 値 | 使用場面 |
+|------|--------|-----|----------|
+| ポジティブ | ブルー | `#3B82F6` | 良い評価 |
+| ネガティブ | レッド | `#EF4444` | 悪い評価 |
+
 ## タイポグラフィ
 
 ### フォントファミリー
 
 ```css
-font-sans: 'Noto Sans JP', sans-serif;  /* 本文用 */
-font-serif: 'Noto Serif', serif;        /* タイトル・強調用 */
+font-display: 'Noto Sans JP', sans-serif;    /* 本文用 */
+font-headline: 'Space Grotesk', sans-serif;  /* 見出し用 */
+font-sans: 'Noto Sans JP', sans-serif;       /* 本文用（デフォルト） */
+font-serif: 'Noto Serif', serif;             /* タイトル・強調用 */
 ```
 
 ### フォントサイズ階層
@@ -252,7 +277,11 @@ Tailwindデフォルトの4px基準システムを使用：
 全ページで基本スタイルを適用：
 
 ```html
+<!-- ライトモード -->
 <body class="min-h-screen bg-gray-50 text-gray-900 font-sans antialiased">
+
+<!-- ライト/ダークモード対応 -->
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
 ```
 
 ## レスポンシブデザイン
