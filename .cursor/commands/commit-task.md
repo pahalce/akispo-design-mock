@@ -11,7 +11,7 @@
 - scope: 任意（kebab-case）
 - summary: 命令形・<= 50 文字・末尾に句点なし
 - why: 箇条書き（1〜3 行）
-- changes (What/How): 箇条書き（1〜5 行）
+- changes (What/How): 箇条書き（1〜5 行、ファイル名だけでなく具体的な作業内容を含める）
 - footer（任意）: Refs / Closes / Co-authored-by / BREAKING CHANGE
 
 ## フロー
@@ -30,8 +30,8 @@ Why:
 - <why line 2>
 
 What/How:
-- <change 1>
-- <change 2>
+- <created/updated/removed> <what> to <purpose>
+- <how it was done / important details not obvious from diff>
 
 Refs: <links>
 # Closes: <issue IDs>
