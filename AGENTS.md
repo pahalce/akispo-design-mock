@@ -43,9 +43,18 @@ akispo/
 ├── tailwind-config.js      # Tailwind拡張設定
 ├── *.html                  # ページファイル
 ├── .cursor/rules/          # プロジェクトルール
-└── docs/specs/design/
-    ├── design-system.md    # デザインシステム全体
-    └── design-tokens.md    # 実装ガイド
+└── docs/
+    ├── specs/
+    │   ├── design/
+    │   │   ├── design-system.md    # デザインシステム全体
+    │   │   └── design-tokens.md    # 実装ガイド
+    │   └── screen/
+    │       └── MVP.md              # 画面仕様一覧
+    └── sample-design/              # デザインサンプル
+        └── akispot_*/              # 各画面のサンプルデザイン
+            ├── code.html           # HTMLモックアップコード
+            ├── screen.png          # デザイン画像
+            └── screen.md           # 画面設計書（詳細仕様）
 ```
 
 ## 参考ドキュメント
@@ -54,4 +63,6 @@ akispo/
 
 - **[デザインシステム](docs/specs/design/design-system.md)** - カラーパレット、タイポグラフィ、アイコンサイズ、コンポーネントパターン
 - **[デザイントークン実装ガイド](docs/specs/design/design-tokens.md)** - CSS変数の使用方法、具体的な値、コード例
+- **[画面仕様](docs/specs/screen/MVP.md)** - 各画面の仕様一覧
+- **各画面の設計書** - `docs/sample-design/akispot_*/screen.md` に各画面の詳細設計書を記載
 - **[Tailwind CSS Documentation](https://tailwindcss.com/docs)** - Tailwindデフォルトトークン

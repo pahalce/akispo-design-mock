@@ -132,6 +132,10 @@ akispo/
     │   └── screen/
     │       └── MVP.md
     └── sample-design/          # デザインサンプル（参考）
+        └── akispot_*/          # 各画面のサンプルデザイン
+            ├── code.html       # HTMLモックアップコード
+            ├── screen.png      # デザイン画像
+            └── screen.md       # 画面設計書（各画面の詳細仕様）
 ```
 
 ## 注意事項
@@ -149,6 +153,8 @@ akispo/
 
 - **[デザインシステム](docs/specs/design/design-system.md)** - カラー、タイポグラフィ、コンポーネントパターン
 - **[デザイントークン実装ガイド](docs/specs/design/design-tokens.md)** - 実装時の使用方法
+- **[画面仕様](docs/specs/screen/MVP.md)** - 各画面の仕様一覧
+- **各画面の設計書** - `docs/sample-design/akispot_*/screen.md` に各画面の詳細設計書を記載
 
 ## 開発ルール
 
