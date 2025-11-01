@@ -1,9 +1,0 @@
----
-description: Provide TS review guidance via references (Agent Requested)
-globs:
-alwaysApply: false
----
-このルールは TypeScript のレビュー用チェックリストを参照します。
-@docs/howto/review.md
-@docs/engineering/conventions/languages/typescript/review-checklist.md
-@docs/engineering/conventions/common/review-checklist.md

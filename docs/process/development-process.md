@@ -2,8 +2,7 @@
 
 ## 規約の継続改善（Conventions Improvement Loop）
 
-1. 実装終了 → 言語別レビュー: 対象言語のルール（例: `review-typescript`）を読み込み、
-   共通 + 言語別チェックリストでレビューする。
+1. 実装終了 → レビュー: 共通 + 言語別チェックリストでレビューする。
 2. 不足・曖昧な点をタスク化: `docs/epics/task-ideas/` にチケットを追加（`epics/templates/task-template.md` 使用）。
 3. 規約更新の実装: `docs/engineering/conventions/...` を PR で更新。影響が大きい場合は ADR も追加。
 4. 運用文書更新: 必要に応じて `docs/howto/review.md` を更新し、レビューフローに反映。
