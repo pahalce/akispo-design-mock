@@ -3,32 +3,36 @@
 ## 概要
 
 
-この文書は「方針とフェーズ目標のハブ」です。進捗は （backlog/wip/done）で管理し、タスクはエピック配下に整理します。
-主要エピック: [フェーズ1-1 ドキュメント構造](tasks/epics/epic-2025-11-docs-structure.md)
+この文書は「方針とフェーズ目標のハブ」です。進捗は epic の状態（todo/wip/done）で管理し、タスクはエピック配下に整理します。
+主要エピック: [フェーズ1-1 ドキュメント構造](epics/done/20251101-docs-structure/epic-description.md)
 
 このドキュメントは、AkiSpotのサービス開発を進める上での概要レベルの大きなタスクリストです。
 
 ## フェーズ1: ドキュメント・運用基盤の整備
 
 ### 1.1 ドキュメントディレクトリ構成の決定
-- エピック: [epic-2025-11-docs-structure](tasks/epics/epic-2025-11-docs-structure.md)
+- エピック: [epic-2025-11-docs-structure](epics/done/20251101-docs-structure/epic-description.md)（完了）
 - プロダクト開発用ドキュメントの構造設計
 - 各ドキュメントの目的・用途の定義
 - ドキュメントテンプレートの作成
 
 ### 1.2 ドキュメント運用方法の決定
+- エピック: [epic-2025-11-docs-operations](epics/todo/20251101-docs-operations/epic-description.md)
 - ドキュメント更新フローの定義
 - レビュープロセスの定義
 - ドキュメント管理ツールの選定（必要に応じて）
 - ドキュメントバージョン管理方針
 
 ### 1.3 開発プロセス文書化
+- エピック: [epic-2025-11-dev-process](epics/todo/20251101-dev-process/epic-description.md)
 - 開発フローの定義
 - ブランチ戦略の決定
 - コードレビュープロセスの定義
 - コミット規約の定義
 
 ## フェーズ2: 技術選定
+
+- エピック: [epic-2025-11-tech-selection](epics/todo/20251102-tech-selection/epic-description.md)
 
 ### 2.1 フロントエンド技術選定
 - フレームワーク選定（React/Vue/Svelte等）
@@ -55,6 +59,8 @@
 - その他外部API選定
 
 ## フェーズ3: 実装プロセスの決定
+
+- エピック: [epic-2025-11-implementation-process](epics/todo/20251103-implementation-process/epic-description.md)
 
 ### 3.1 開発環境構築プロセスの定義
 - ローカル開発環境のセットアップ手順

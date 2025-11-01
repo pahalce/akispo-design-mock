@@ -27,13 +27,21 @@
   - [README](howto/README.md)
   - [cursor.md](howto/cursor.md)
   - [review.md](howto/review.md)
-- **タスク管理 (`tasks/`)**
-  - [README](tasks/README.md)
-  - 状態: [backlog/](tasks/backlog/) → [wip/](tasks/wip/) → [done/](tasks/done/)（または [cancelled/](tasks/cancelled/)）
+- **Epics (`epics/`)**
+  - [README](epics/README.md)
+  - [task-ideas/](epics/task-ideas/) - epic に紐づかないタスク
+  - [todo/](epics/todo/) - アクティブな epic
+  - [done/](epics/done/) - 完了した epic
+  - [wip/](epics/wip/) - 進行中の epic
 - **ADR (`adr/`)**
   - [README](adr/README.md)
-- **テンプレート (`templates/`)**
-  - [README](templates/README.md)
+  - [adr-template.md](adr/adr-template.md) - ADR 作成時の雛形
+
+## テンプレート
+- [doc-template.md](doc-template.md) - 一般的なドキュメント用（docs/ 直下）
+- [epic-template.md](epics/templates/epic-template.md) - epic 用（docs/epics/templates/）
+- [task-template.md](epics/templates/task-template.md) - タスク用（docs/epics/templates/）
+- [commit-message-template.md](engineering/guidelines/commit-message-template.md) - コミットメッセージ用（docs/engineering/guidelines/）
 
 ## デザイン資料
 

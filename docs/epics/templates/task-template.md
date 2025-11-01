@@ -1,5 +1,5 @@
 ---
-id: task-YYYY-MM-DD-unique
+id: YYYYMMDD-unique
 title: <short-title>
 owner: @you
 due: YYYY-MM-DD

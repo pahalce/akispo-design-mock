@@ -5,4 +5,4 @@ alwaysApply: false
 ---
 このルールはコミットメッセージ規約とテンプレートを参照します。
 @docs/engineering/guidelines/commit-convention.md
-@docs/templates/commit-message-template.md
+@docs/engineering/guidelines/commit-message-template.md

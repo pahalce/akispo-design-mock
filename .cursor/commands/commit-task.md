@@ -4,7 +4,7 @@
 
 参照（正本）:
 - @docs/engineering/guidelines/commit-convention.md
-- @docs/templates/commit-message-template.md
+- @docs/engineering/guidelines/commit-message-template.md
 
 ## 入力
 - type: feat | fix | docs | refactor | test | chore | build | ci | perf | style | revert

@@ -1,5 +1,5 @@
 ---
-id: epic-2025-11-docs-structure
+id: epic-20251101-docs-structure
 title: フェーズ1-1 ドキュメント構造の整備
 owner: @you
 phase: 1.1
