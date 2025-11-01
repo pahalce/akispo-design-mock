@@ -64,6 +64,20 @@ AkiSpotのデザイントークンは、Tailwind CSSのutility-firstの原則に
 <div class="bg-accent text-secondary">スコア表示</div>
 ```
 
+### レイアウトサイズ
+
+全ページで統一されたサイズを使用：
+
+```html
+<!-- ヘッダー（高さ64px） -->
+<header class="h-header">ヘッダー</header>
+
+<!-- アイコンボタン（40px × 40px） -->
+<button class="w-icon-button h-icon-button">
+  <span class="material-symbols-outlined">menu</span>
+</button>
+```
+
 ### Tailwindデフォルトの色
 
 プロジェクト固有でない色は**Tailwindデフォルトを使用**：

@@ -42,6 +42,15 @@ tailwind.config = {
         sans: ['Noto Sans JP', 'sans-serif'],
         serif: ['Noto Serif', 'serif'],
       },
+      
+      /* レイアウトサイズ */
+      height: {
+        'header': 'var(--header-height)',
+        'icon-button': 'var(--icon-button-size)',
+      },
+      width: {
+        'icon-button': 'var(--icon-button-size)',
+      },
     },
   },
 };

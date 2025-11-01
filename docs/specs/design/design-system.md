@@ -229,19 +229,23 @@ Tailwindデフォルトの4px基準システムを使用：
 
 ### ヘッダー
 
+全ページで統一された高さ（64px）を使用：
+
 ```html
-<header class="bg-white shadow-sm p-4 sticky top-0 z-20">
-  <div class="flex items-center justify-between">
-    <button class="w-10 h-10 rounded-full hover:bg-gray-100">
-      <span class="material-symbols-outlined">arrow_back</span>
-    </button>
-    <h1 class="text-lg font-bold">タイトル</h1>
-    <button class="w-10 h-10 rounded-full hover:bg-gray-100">
-      <span class="material-symbols-outlined">more_horiz</span>
-    </button>
-  </div>
+<header class="bg-white shadow-sm h-header flex items-center justify-between px-4 sticky top-0 z-20">
+  <button class="w-icon-button h-icon-button rounded-full hover:bg-gray-100">
+    <span class="material-symbols-outlined">arrow_back</span>
+  </button>
+  <h1 class="text-lg font-bold">タイトル</h1>
+  <button class="w-icon-button h-icon-button rounded-full hover:bg-gray-100">
+    <span class="material-symbols-outlined">more_horiz</span>
+  </button>
 </header>
 ```
+
+**共通サイズ:**
+- ヘッダー高さ: `h-header` (64px)
+- アイコンボタン: `w-icon-button h-icon-button` (40px × 40px)
 
 ### bodyタグ
 

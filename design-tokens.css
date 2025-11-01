@@ -28,6 +28,10 @@
   
   /* Destructive Color */
   --color-destructive: #FC3D13;
+  
+  /* Layout Sizes */
+  --header-height: 64px;
+  --icon-button-size: 40px;
 }
 
 /* ===================================
