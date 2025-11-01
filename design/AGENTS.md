@@ -38,11 +38,10 @@
 ## ファイル構成
 
 ```
-akispo/
+design/
 ├── design-tokens.css       # プロジェクト固有のトークン
 ├── tailwind-config.js      # Tailwind拡張設定
 ├── *.html                  # ページファイル
-├── .cursor/rules/          # プロジェクトルール
 └── docs/
     ├── specs/
     │   ├── design/
@@ -56,6 +55,8 @@ akispo/
             ├── screen.png          # デザイン画像
             └── screen.md           # 画面設計書（詳細仕様）
 ```
+
+**注意**: プロジェクトルール（`.cursor/`）はルートディレクトリに配置されています。
 
 ## 参考ドキュメント
 
