@@ -32,23 +32,9 @@ tailwind.config = {
           DEFAULT: 'var(--color-accent)',
           hover: 'var(--color-accent-hover)',
         },
-        
-        // 既存コード互換性のための旧変数名（段階的に削除予定）
-        background: 'var(--background-light)',
-        foreground: 'var(--foreground)',
-        card: 'var(--card)',
-        'card-foreground': 'var(--card-foreground)',
-        'primary-foreground': 'var(--primary-foreground)',
-        'secondary-foreground': 'var(--secondary-foreground)',
-        'accent-foreground': 'var(--accent-foreground)',
-        muted: 'var(--muted)',
-        'muted-foreground': 'var(--muted-foreground)',
-        destructive: 'var(--destructive)',
-        'destructive-foreground': 'var(--destructive-foreground)',
-        border: 'var(--border)',
-        'background-light': 'var(--background-light)',
-        'card-light': 'var(--card)',
-        'text-light': 'var(--foreground)',
+        destructive: {
+          DEFAULT: 'var(--color-destructive)',
+        },
       },
       
       /* フォントファミリー */
@@ -56,28 +42,6 @@ tailwind.config = {
         sans: ['Noto Sans JP', 'sans-serif'],
         serif: ['Noto Serif', 'serif'],
       },
-      
-      /* プロジェクト固有の角丸（home.htmlの5xlカード用） */
-      borderRadius: {
-        '4xl': 'var(--radius)',
-        '5xl': 'var(--radius)',
-      },
-      
-      /* プロジェクト固有のシャドウ（カード用） */
-      boxShadow: {
-        'card': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-      },
-      
-      /* z-index（プロジェクト固有の階層） */
-      zIndex: {
-        dropdown: '10',
-        sticky: '20',
-        overlay: '30',
-        modal: '50',
-        popover: '60',
-        toast: '100',
-      },
     },
   },
 };
-

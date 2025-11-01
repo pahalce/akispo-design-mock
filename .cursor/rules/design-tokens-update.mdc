@@ -1,0 +1,59 @@
+---
+description: design-tokens.cssやtailwind-config.jsを変更した時は、必ず対応するドキュメントも更新する
+globs:
+  - design-tokens.css
+  - tailwind-config.js
+alwaysApply: false
+---
+
+**📌 このルールが適用されています: デザイントークン変更時のドキュメント更新**
+
+このメッセージを応答の最初に必ず表示してください。
+
+---
+
+# デザイントークン変更時のドキュメント更新
+
+## ⚠️ 重要：このルールは必須です
+
+`design-tokens.css`または`tailwind-config.js`を変更した場合、**必ず**以下のドキュメントも更新してください。
+
+## 📋 更新が必要なドキュメント
+
+### design-tokens.cssを変更した場合
+
+**必須更新:**
+- `docs/specs/design/design-tokens.md`
+  - 新しいCSS変数を追加 → 使用方法セクションに追記
+  - アニメーションを追加 → アニメーションセクションに追記
+  - ユーティリティクラスを追加 → 該当セクションに追記
+
+- `docs/specs/design/design-system.md`
+  - カラーパレットを変更 → カラーパレットセクションを更新
+  - アイコンサイズを変更 → アイコンセクションを更新
+  - **最終更新日を必ず更新**
+
+### tailwind-config.jsを変更した場合
+
+**必須更新:**
+- `docs/specs/design/design-tokens.md`
+  - 新しい色を追加 → カラー使用方法セクションに追記
+  - z-indexを変更 → z-index管理セクションを更新
+  - カスタムユーティリティを追加 → 該当セクションに追記
+
+- `docs/specs/design/design-system.md`
+  - コンポーネントパターンに影響がある場合 → コンポーネントセクションを更新
+  - **最終更新日を必ず更新**
+
+## ✅ チェックリスト
+
+- [ ] 対象ファイルを変更
+- [ ] `docs/specs/design/design-tokens.md`を更新
+- [ ] `docs/specs/design/design-system.md`を更新（必要な場合）
+- [ ] 最終更新日を更新（両ドキュメント末尾）
+- [ ] 全HTMLファイルで表示確認
+
+## 📚 参考ドキュメント
+
+- [デザイントークン実装ガイド](../docs/specs/design/design-tokens.md)
+- [デザインシステム](../docs/specs/design/design-system.md)

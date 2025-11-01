@@ -81,6 +81,7 @@ AkiSpotは、Google マップの口コミデータを分析し、「座れる傾
 
 - HTML5
 - Tailwind CSS v3 (CDN)
+- デザイントークン (`design-tokens.css`)
 - Google Material Symbols (アイコン)
 - Noto Sans JP (日本語フォント)
 - Noto Serif (英字フォント - "It's a Match!"用)
@@ -104,21 +105,33 @@ AkiSpotは、Google マップの口コミデータを分析し、「座れる傾
 
 ```
 akispo/
-├── home.html          # ホーム画面（スワイプカード + マッチングダイアログ）
-├── select-map.html    # 地図選択画面
-├── detail.html        # スポット詳細画面
-├── history.html       # 履歴画面
-├── settings.html      # 設定画面
-├── README.md          # このファイル
-├── docs/              # 仕様書
-│   └── specs/
-│       ├── design-guideline.md
-│       ├── requirements/
-│       │   └── MVP.md
-│       └── screen/
-│           └── MVP.md
-├── sample/            # デザインサンプル（参考）
-└── old/               # 旧バージョン（参考）
+├── home.html               # ホーム画面（スワイプカード + マッチングダイアログ）
+├── select-map.html         # 地図選択画面
+├── detail.html             # スポット詳細画面
+├── history.html            # 履歴画面
+├── settings.html           # 設定画面
+├── design-tokens.css       # デザイントークン定義
+├── tailwind-config.js      # Tailwind共通設定
+├── AGENTS.md               # Agent向けプロジェクト方針
+├── README.md               # このファイル
+├── .cursor/
+│   ├── rules/              # プロジェクトルール（.mdc形式）
+│   │   ├── design-tokens-update.mdc       # デザイントークン変更時のドキュメント更新
+│   │   ├── html-guidelines.mdc            # HTML作成ガイドライン
+│   │   ├── material-symbols-icons.mdc     # Material Symbolsアイコン使用方法
+│   │   └── css-guidelines.mdc             # CSS記述ガイドライン
+│   └── commands/           # Cursor Commands（.mdc形式）
+│       └── commit-message.mdc             # コミットメッセージ生成コマンド
+└── docs/
+    ├── specs/
+    │   ├── design/
+    │   │   ├── design-system.md    # デザインシステム全体
+    │   │   └── design-tokens.md    # デザイントークン実装ガイド
+    │   ├── requirements/
+    │   │   └── MVP.md
+    │   └── screen/
+    │       └── MVP.md
+    └── sample-design/          # デザインサンプル（参考）
 ```
 
 ## 注意事項
@@ -130,22 +143,45 @@ akispo/
 - ❌ バックエンド連携、API実装はありません
 - ❌ 実際の位置情報取得や計算は含まれません
 
-## 改善提案
+## デザインドキュメント
 
-詳細な改善提案は `IMPROVEMENTS.md` を参照してください。
+エンジニア向けのデザイン関連ドキュメント：
 
-主な改善点：
-- 画面の状態バリエーション（空、エラー、ローディング）
-- デザイントークンの明文化
-- インタラクション後の状態表示
-- コンポーネントの状態定義
+- **[デザインシステム](docs/specs/design/design-system.md)** - カラー、タイポグラフィ、コンポーネントパターン
+- **[デザイントークン実装ガイド](docs/specs/design/design-tokens.md)** - 実装時の使用方法
+
+## 開発ルール
+
+プロジェクトの開発ルールは `.cursor/` ディレクトリと `AGENTS.md` を参照してください。
+
+### Project Rules（`.cursor/rules/`）
+
+自動適用されるルール：
+
+- **design-tokens-update.mdc** - デザイントークン変更時のドキュメント更新ルール
+- **html-guidelines.mdc** - HTML作成ガイドライン
+- **material-symbols-icons.mdc** - Material Symbolsアイコン使用方法
+- **css-guidelines.mdc** - CSS記述ガイドライン
+
+### Cursor Commands（`.cursor/commands/`）
+
+手動で呼び出すコマンド：
+
+- **commit-message** - コミットメッセージを規約に従って生成
+
+使い方: チャットで `/commit-message` と入力
+
+### AGENTS.md
+
+Agent向けのプロジェクト方針とクイックリファレンス。
+
+**重要**: `design-tokens.css`や`tailwind-config.js`を変更した場合、必ず対応するドキュメントも更新してください。
 
 ## 次のステップ
 
-1. デザイン確認とフィードバック収集
-2. `IMPROVEMENTS.md` の高優先度項目の実装
-3. デザイントークンの確定
-4. Reactでの実装フェーズへ移行
+1. ✅ デザイントークンの共通化完了
+2. 追加の画面状態バリエーション（空、エラー、ローディング）の実装
+3. Reactでの実装フェーズへ移行
 
 ---
 

@@ -1,0 +1,56 @@
+---
+description: CSS記述時のガイドライン（design-tokens.cssはプロジェクト固有のみ、Tailwindデフォルト優先）
+globs:
+  - design-tokens.css
+  - "*.css"
+  - "*.html"
+alwaysApply: false
+---
+
+**🎨 このルールが適用されています: CSS記述ガイドライン**
+
+このメッセージを応答の最初に必ず表示してください。
+
+---
+
+# CSS記述ガイドライン
+
+## 🎯 基本原則
+
+1. **Tailwindデフォルトを最大限活用**
+   - spacing, fontSize, colors等はTailwindデフォルトを使用
+   - プロジェクト固有のものだけカスタマイズ
+
+2. **design-tokens.cssはプロジェクト固有の定義のみ**
+   - 不要なCSS変数は追加しない
+   - Tailwindで十分な場合は使わない
+
+## ✅ design-tokens.cssに記載してよいもの
+
+- プロジェクト固有の色（AkiSpot独自カラー）
+- z-index階層（プロジェクト固有）
+- Material Symbolsアイコンサイズクラス
+- 共通アニメーション
+- ユーティリティクラス（Tailwindにないもの）
+
+## ❌ design-tokens.cssに記載してはいけないもの
+
+- Tailwindデフォルトの再定義（spacing, fontSize等）
+- 要素セレクタへのスタイル（`body {}`, `a {}` 等）
+
+## 📝 命名規則
+
+- カラー: `--color-{name}`, `--color-{name}-hover`
+- z-index: `--z-{name}`
+- アニメーション: `@keyframes {name}`, `.animate-{name}`
+
+## 🎨 ページ固有のカスタムCSS
+
+- HTMLファイル内の`<style>`タグに記述可能
+- ただし、3回以上使われる場合はコンポーネント化を検討
+
+## 📚 詳細は以下を参照
+
+- [デザイントークン実装ガイド](../docs/specs/design/design-tokens.md) - 具体的な使用方法と値
+- [デザインシステム](../docs/specs/design/design-system.md) - デザインの全体像
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Tailwindデフォルト

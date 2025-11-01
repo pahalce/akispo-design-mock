@@ -1,0 +1,44 @@
+---
+description: HTMLファイル作成時のガイドライン（bodyタグのクラス、要素セレクタ禁止、utility-first）
+globs:
+  - "*.html"
+alwaysApply: false
+---
+
+**📄 このルールが適用されています: HTML作成ガイドライン**
+
+このメッセージを応答の最初に必ず表示してください。
+
+---
+
+# HTML作成ガイドライン
+
+## 🎯 基本原則
+
+1. **Tailwind utility-firstを徹底**
+   - カスタムCSSは最小限に
+   - 要素セレクタへの直接スタイル適用は禁止
+
+2. **bodyタグには必ず基本クラスを適用**
+   - `min-h-screen bg-gray-50 text-gray-900 font-sans antialiased`
+   - ページ固有のクラス（`pb-24`、`flex flex-col h-screen`等）は必要に応じて追加
+
+3. **headセクションでデザイントークンを読み込む**
+   - 順序: `design-tokens.css` → `tailwind-config.js`
+
+## ❌ 禁止事項
+
+- 要素セレクタへの直接スタイル適用（例: `body {}`, `a {}`, `button {}`）
+- インラインスタイル（`style="..."`）
+- Tailwind configのインライン記述
+
+## ✅ 推奨事項
+
+- utilityクラスでスタイリング
+- ページ固有のスタイルは最小限のみ`<style>`タグで記述可能
+- 再利用可能なパターン（3回以上使用）は`docs/specs/design/design-system.md`に追記
+
+## 📚 詳細は以下を参照
+
+- [デザインシステム](../docs/specs/design/design-system.md) - コンポーネントパターン
+- [デザイントークン実装ガイド](../docs/specs/design/design-tokens.md) - 実装方法

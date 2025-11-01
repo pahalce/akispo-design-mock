@@ -1,0 +1,45 @@
+---
+description: Material Symbolsアイコンの正しいサイズ指定方法（text-*禁止、専用クラス使用）
+globs:
+  - "*.html"
+alwaysApply: false
+---
+
+**🎨 このルールが適用されています: Material Symbolsアイコンガイド**
+
+このメッセージを応答の最初に必ず表示してください。
+
+---
+
+# Material Symbols アイコンガイド
+
+## 🎯 基本原則
+
+**text-*クラスでアイコンサイズを指定しない**
+- 専用のアイコンサイズクラス（`icon-sm`, `icon-lg`, `icon-xl`, `icon-2xl`）を使用
+- 用途に応じた適切なサイズを選択
+
+## 📏 アイコンサイズの使い分け
+
+| 用途 | クラス | サイズ |
+|------|--------|--------|
+| ヘッダーアイコン | デフォルト | 24px |
+| ナビゲーションバー | `icon-lg` | 32px |
+| アクションボタン | `icon-xl` | 48px |
+| カード内補助アイコン | `icon-sm` | 20px |
+| 空状態 | `icon-2xl` | 64px |
+
+## ❌ 禁止事項
+
+- `text-*`クラスでアイコンサイズを指定しない
+- 例: `<span class="material-symbols-outlined text-3xl">search</span>`
+
+## ✅ 正しい使い方
+
+- 専用クラスを使用: `<span class="material-symbols-outlined icon-lg">search</span>`
+- カラー指定はTailwindの`text-*`クラスで行う
+
+## 📚 詳細は以下を参照
+
+- [デザインシステム](../docs/specs/design/design-system.md) - アイコンセクション
+- [デザイントークン実装ガイド](../docs/specs/design/design-tokens.md) - アイコンサイズ使用方法

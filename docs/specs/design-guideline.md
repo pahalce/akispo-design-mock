@@ -1,2 +1,0 @@
-1. デザイントークン
-    1. 「遊び心のあるスタイリッシュさ」を基調とし、日本語表記に最適化されたフォントとレイアウトを採用しています。提供されたカラーパレット（`primary: #FF7F50`, `secondary: #2C3E50`, `accent: #FFD700`, `background-light: #F5F5F5`, `background-dark: #122017`, `card-light: #FFFFFF`, `card-dark: #212e36`, `text-light: #2C3E50`, `text-dark: #EAEAEA`）を統一的に適用し、視覚的な一貫性とユーザーに自己肯定感を与えるような洗練されたUIを目指しています。特に「画像強調・最小情報」をコンセプトとしています。
