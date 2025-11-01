@@ -1,0 +1,8 @@
+---
+description: Provide commit message guidance and template via references
+globs:
+alwaysApply: false
+---
+このルールはコミットメッセージ規約とテンプレートを参照します。
+@docs/engineering/guidelines/commit-convention.md
+@docs/templates/commit-message-template.md
