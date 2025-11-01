@@ -55,9 +55,13 @@ cd product
 
 ## 参考ドキュメント
 
+### デザイン関連
 - [デザインモックアップ](design/README.md)
 - [デザインシステム](design/docs/specs/design/design-system.md)
 - [画面仕様](design/docs/specs/screen/MVP.md)
+
+### プロダクト開発
+- [開発計画](docs/DEVELOPMENT_PLAN.md) - サービス開発の概要レベルのタスクリスト
 
 ---
 
