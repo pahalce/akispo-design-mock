@@ -1,0 +1,10 @@
+---
+description: Auto attach docs guidance when working with docs/* files
+globs: docs/**/*.md
+alwaysApply: false
+---
+このルールは docs 配下の作業時に自動で関連ガイドを添付します（正本は docs/ 配下）。
+@docs/howto/cursor.md
+@docs/templates/doc-template.md
+@docs/templates/adr-template.md
+@docs/templates/task-template.md

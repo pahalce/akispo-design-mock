@@ -1,28 +1,45 @@
 # AkiSpot Product Documentation
 
-プロダクト開発に関するドキュメントを格納します。
+プロダクト開発に関する正本ドキュメントを格納します。ファイル名は英語（kebab-case）、本文は日本語です。
 
-## 概要
+## 目次
 
-このディレクトリには、`product/`での開発に関するドキュメントを格納します。
+- **計画**
+  - **[開発計画](DEVELOPMENT_PLAN.md)**
+- **プロダクト (`product/`)**
+  - [README](product/README.md)
+  - [vision.md](product/vision.md)
+  - [roadmap.md](product/roadmap.md)
+- **エンジニアリング (`engineering/`)**
+  - [README](engineering/README.md)
+  - アーキテクチャ: [architecture/](engineering/architecture/)
+  - API: [api/](engineering/api/)
+  - フロントエンド: [frontend/](engineering/frontend/)
+  - バックエンド: [backend/](engineering/backend/)
+  - データベース: [database/](engineering/database/)
+  - テスト: [testing/](engineering/testing/)
+  - ガイドライン: [guidelines/](engineering/guidelines/)
+  - コーディング規約: [conventions/](engineering/conventions/)
+- **プロセス (`process/`)**
+  - [README](process/README.md)
+  - [development-process.md](process/development-process.md)
+- **手順 (`howto/`)**
+  - [README](howto/README.md)
+  - [cursor.md](howto/cursor.md)
+  - [review.md](howto/review.md)
+- **タスク管理 (`tasks/`)**
+  - [README](tasks/README.md)
+  - 状態: [backlog/](tasks/backlog/) → [wip/](tasks/wip/) → [done/](tasks/done/)（または [cancelled/](tasks/cancelled/)）
+- **ADR (`adr/`)**
+  - [README](adr/README.md)
+- **テンプレート (`templates/`)**
+  - [README](templates/README.md)
 
-## ドキュメント構成
+## デザイン資料
 
-### 開発計画
-- **[開発計画](DEVELOPMENT_PLAN.md)** - サービス開発の概要レベルの大きなタスクリスト
-
-### 今後追加予定のドキュメント
-
-開発が進むにつれて、以下のようなドキュメントを追加予定です：
-
-- アーキテクチャ設計
-- API仕様
-- 開発ガイドライン
-- デプロイ手順
-- データベース設計
-- など
+デザインは独立ディレクトリで管理します: [design/](../design/)
 
 ---
 
-これから開発を開始します。
+この `docs/` 配下がドキュメントの正本です。Cursor ルールは `@docs/...` で本ドキュメントを参照します。
 

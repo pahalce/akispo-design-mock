@@ -1,0 +1,8 @@
+---
+description: Provide common review checklist (Manual)
+globs:
+alwaysApply: false
+---
+このルールは言語共通のレビュー用チェックリストを参照します。
+@docs/howto/review.md
+@docs/engineering/conventions/common/review-checklist.md

@@ -1,0 +1,9 @@
+---
+description: Docs standards (referential; source of truth is under docs/)
+globs:
+alwaysApply: true
+---
+このルールはドキュメント規約の要点を常時参照します（正本は docs/ 配下）。
+@docs/engineering/guidelines/commit-convention.md
+@docs/engineering/guidelines/code-review.md
+@docs/howto/cursor.md
